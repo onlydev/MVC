@@ -16,9 +16,6 @@ use Onlydev\System\MariaDB;
 $dotenv = Dotenv::create(__DIR__.'/../');
 $dotenv->load();
 
-// 데이터베이스 접속
-//$db = (new MariaDB())->getConnection();
-
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE');
 header('Access-Control-Max-Age: 3600');

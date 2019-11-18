@@ -1,6 +1,8 @@
 <?php
 namespace Onlydev\Controllers;
 
+use Onlydev\Models\TestModel;
+
 class TestController
 {
     public function index()
@@ -18,6 +20,10 @@ class TestController
     
     public function getTest()
     {
+        $data = ['id'=>1];
+        $test = new TestModel();
+        $result = $test->findId($data);
+        
         return 'This will respond to /controller/test with only a GET method';
     }
     

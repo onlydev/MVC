@@ -9,7 +9,8 @@ class MariaDB
     /**
      * @var PDO
      */
-    private $conn = NULL;
+    public $conn;
+    private static $instance;
     
     public function __construct()
     {
@@ -32,13 +33,13 @@ class MariaDB
         }
     }
     
-    public function getConnection()
+    public static function getInstance()
     {
-        return $this->conn;
-    }
-    
-    public function __destruct()
-    {
-        $this->conn = NULL;
+        if(!isset(self::$instance))
+        {
+            $object = __CLASS__;
+            self::$instance = new $object;
+        }
+        return self::$instance;
     }
 }
