@@ -10,7 +10,6 @@ require '../vendor/autoload.php';
  * https://github.com/vlucas/phpdotenv
  */
 use Dotenv\Dotenv;
-use Onlydev\System\MariaDB;
 
 // .env 환경설정 로드
 $dotenv = Dotenv::create(__DIR__.'/../');
