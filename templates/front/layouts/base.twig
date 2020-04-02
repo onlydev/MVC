@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ template.pageTitle }}::{{ constant('SITE_NAME') }}</title>
+
+    {# favicon #}
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="ie=edge">
+
+    {# font #}
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+KR:500&display=swap&subset=korean">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=East+Sea+Dokdo&display=swap">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css">
+
+</head>
+
+<body id="wrapper">
+    <div id="content">{% block content %}{% endblock %}</div>
+
+    <div id="footer">
+        {% block footer %}
+            &copy; Copyright {{ "now"|date('Y') }} by <a href="{{ constant('DOMAIN') }}">{{ constant('SITE_NAME') }}</a>
+        {% endblock %}
+    </div>
+
+    <script src="//kit.fontawesome.com/c14d6e5016.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

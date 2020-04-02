@@ -1,13 +1,38 @@
 <?php
-namespace Onlydev\Controllers;
+namespace Onlydev\Controllers\Test;
 
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 use Onlydev\Models\TestModel;
 
 class TestController
 {
+    private $twig;
+    
+    public function __construct()
+    {
+        $templateDir = __DIR__.'/../../../templates/front';
+        $this->twig = new Environment(new FilesystemLoader($templateDir));
+    }
+    
     public function index()
     {
-        return 'This is the default page and will respond to /controller and /controller/index';
+        $text = 'This is the default page and will respond to /controller and /controller/index';
+        
+        $R = [
+            'file' => 'layout.twig',
+            'data' => [
+                'template' => [
+                    'layout' => 'base',
+                    'page' => 'test/index.twig',
+                    'pageTitle' => '테스트 페이지 인덱스'
+                ],
+                'data' => [
+                    'text' => $text
+                ]
+            ]
+        ];
+        return $this->twig->render($R['file'], $R['data']);
     }
     
     /**

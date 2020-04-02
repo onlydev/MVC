@@ -5,14 +5,9 @@ ini_set('display_errors', 1);
 
 require '../vendor/autoload.php';
 
-/**
- * 환경설정 라이브러리
- * https://github.com/vlucas/phpdotenv
- */
-use Dotenv\Dotenv;
-
+// 환경설정 라이브러리 - https://github.com/vlucas/phpdotenv
 // .env 환경설정 로드
-$dotenv = Dotenv::create(__DIR__.'/../');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../');
 $dotenv->load();
 
 header('Access-Control-Allow-Origin: *');
